@@ -14,6 +14,19 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Control Practice" />
     <link rel="manifest" href="./assets/site.webmanifest" />
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
     <script type="module">
         document.addEventListener("DOMContentLoaded", () => {
             const resetButton = document.getElementById("reset-btn");

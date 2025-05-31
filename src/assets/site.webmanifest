@@ -1,6 +1,6 @@
 {
-  "name": "Control Practice",
-  "short_name": "Control Practice",
+  "name": "Pit Checklist",
+  "short_name": "Checklist",
   "icons": [
     {
       "src": "./web-app-manifest-192x192.png",
@@ -17,5 +17,7 @@
   ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
 }
