@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pit Checklist</title>
+    <!-- Import Roboto font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="icon" type="image/png" href="./assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Control Practice" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", () => {
+            const resetButton = document.getElementById("reset-btn");
+            resetButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                const checkboxes = document.querySelectorAll(".checklist input[type='checkbox']");
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false; // Uncheck all checkboxes
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <div class="side">
+                <h1>Robot Match Reset</h1>
+                <p>Reset the robot to be ready for the next match.</p>
+                <div class="checklist">
+                    <label class="checkbox"><input type="checkbox" />Take out battery</label>
+                    <label class="checkbox"><input type="checkbox" />Reset climber</label>
+                    <label class="checkbox"><input type="checkbox" />Plug new battery in</label>
+                    <label class="checkbox"><input type="checkbox" />Strap in battery</label>
+                    <label class="checkbox"><input type="checkbox" />Correct bumper color</label>
+                </div>
+            </div>
+            <div class="side">
+                <h1>System Checks</h1>
+                <p>Ensure all systems are functioning correctly before the match.</p>
+                <div class="checklist">
+                    <label class="checkbox"><input type="checkbox" />Inspect camera mounts</label>
+                    <label class="checkbox"><input type="checkbox" />Inspect camera lenses</label>
+                    <label class="checkbox"><input type="checkbox" />Check radio wires</label>
+                    <label class="checkbox"><input type="checkbox" />Power on</label>
+                    <label class="checkbox"><input type="checkbox" />Verify swerve encoders</label>
+                    <label class="checkbox"><input type="checkbox" />Check all cameras</label>
+                </div>
+            </div>
+            <a href="#" class="button resetbtn" id="reset-btn">Reset</a>
+        </div>
+        <div class="footer-container">
+            <footer id="footer">
+                <img src="./assets/logo.png" alt="Logo" class="logo" />
+                <p>Made with <span class="heart">♥</span> by <a href="https://www.recordrobotics.org/"
+                        target="_blank">Record
+                        Robotics</a></p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+:root {
+    --bg: #f9f9fb;
+    --bg-alt: #f3f6fa;
+    --fg: #222;
+    --accent: #4f8cff;
+    --accent-alt-1: #78a7ff;
+    --accent-alt-2: #bad2ff;
+    --accent-alt-3: #e7f0ff;
+    --radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    min-width: 100vw;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    position: relative;
+}
+
+.resetbtn {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 1.3rem;
+}
+
+.resetbtn::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border: 10px solid #fff;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 2.5rem;
+    flex: 1;
+    height: 100%;
+}
+
+.side:first-child {
+    border-right: 3px solid #eaeaea;
+}
+
+h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+p {
+    margin: 0 0 1.5rem 0;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+a.button {
+    display: inline-block;
+    padding: 0.7em 1.5em;
+    background-color: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+a.button:hover {
+    background-color: #2563eb;
+}
+
+a.link {
+    display: inline-block;
+    padding: 0.7em 1.5em;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+a.link:hover {
+    color: #2563eb;
+}
+
+.footer-container {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+footer {
+    font-size: 10px;
+    font-weight: 400;
+    color: #959595;
+    text-align: center;
+    width: 100%;
+    user-select: none;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    pointer-events: none;
+}
+
+footer a {
+    color: var(--accent-alt-1);
+    text-decoration: none;
+}
+
+footer p {
+    color: inherit;
+    font-size: inherit;
+    margin: 0 0 10px 0;
+}
+
+.heart {
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: scale(1);
+}
+
+.heart:hover {
+    color: var(--accent);
+    transform: scale(1.4);
+    transition: color 0.2s ease-in-out, transform 0.1s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.heart:active {
+    transform: scale(1);
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 2.5rem;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.checkbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.8rem;
+    user-select: none;
+    margin-bottom: 1.0rem;
+}
+
+.checkbox input[type="checkbox"] {
+    appearance: none;
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    background-color: #fff;
+    margin-right: 1.7em;
+    transition: border-color 0.2s, background-color 0.2s;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.checkbox input[type="checkbox"]:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.checkbox input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 7px;
+    width: 14px;
+    height: 22px;
+    border: solid #fff;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.checkbox input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px var(--accent-alt-2);
+}
+
+.checkbox:has(input[type="checkbox"]:checked) {
+    color: #929292;
+    text-decoration: line-through;
+}
