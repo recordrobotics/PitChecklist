@@ -33,12 +33,21 @@ self.addEventListener('activate', event => {
     self.clients.claim();
 });
 
-// Fetch event: serve cached assets if offline
+// Fetch event: try network first, update cache, fallback to cache if offline
 self.addEventListener('fetch', event => {
     if (event.request.method !== 'GET') return;
     event.respondWith(
-        caches.match(event.request, { ignoreSearch: true }).then(response => {
-            return response || fetch(event.request);
-        })
+        fetch(event.request)
+            .then(networkResponse => {
+                // Update cache with latest version
+                return caches.open(CACHE_NAME).then(cache => {
+                    cache.put(event.request, networkResponse.clone());
+                    return networkResponse;
+                });
+            })
+            .catch(() => {
+                // If network fails, try cache
+                return caches.match(event.request, { ignoreSearch: true });
+            })
     );
 });
